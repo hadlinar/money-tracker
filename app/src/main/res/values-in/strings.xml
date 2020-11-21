@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Money Tracker</string>
+    <string name="main_appbar">Dompet Ku</string>
+    <string name="login_welcome">Selamat Datang</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_button">Masuk</string>
+    <string name="login_register">Belum punya akun? Daftar sekarang!</string>
+    <string name="login_onLoginSuccess">Berhasil masuk!</string>
+    <string name="login_onValidateLoginFailed">Email atau Password anda salah</string>
+    <string name="main_label_account_balance">Berikut jumlah saldo akun utama anda</string>
+    <string name="main_button_transaction">Transaksi</string>
+    <string name="transaction_detail_toolbar">Detail Transaksi</string>
+    <string name="transaction_list_toolbar">Daftar Transaksi</string>
+    <string name="debt_list_toolbar">Daftar Utang</string>
+    <string name="debt_detail_toolbar">Detail Utang</string>
+    <string name="main_button_debt">Utang</string>
+    <string name="register_button">Daftar</string>
+    <string name="register_login">Sudah punya akun? Masuk!</string>
+    <string name="debt_create_toolbar">Tambah Hutang</string>
+    <string name="general_label_note">Catatan</string>
+    <string name="general_label_amount">Jumlah</string>
+    <string name="debt_label_creditor">Tujuan</string>
+    <string name="debt_label_date">Tanggal Bayar</string>
+    <string name="general_button_create">Buat</string>
+    <string name="new_account_balance_label">Mohon masukan jumlah saldo anda</string>
+    <string name="general_required">dibutuhkan</string>
+    <string name="transaction_create_toolbar">Tambah Transaksi</string>
+    <string name="transaction_label_date">Tanggal</string>
+    <string name="transaction_type_income">Pemasukan</string>
+    <string name="transaction_type_expense">Pengeluaran</string>
+    <string name="transaction_category_label">Kategori</string>
+    <string name="error_blank_email">Email tidak boleh kosong</string>
+    <string name="error_wrong_email">Mohon masukan email yang benar</string>
+    <string name="error_password_length">Panjang password harus lebih dari 8 karakter</string>
+    <string name="preferences">wallet.preferences</string>
+    <string name="error_wrong_email_and_password">Email atau password anda salah</string>
+    <string name="error_register">Terjadi kesalahan saat mendaftar. Silahkan coba lagi</string>
+    <string name="session_timeout">Sesi berakhir!</string>
+    <string name="session_has_expired">Sesi anda telah berakhir.</string>
+    <string name="logout">Keluar</string>
+    <string name="category_food">Makanan</string>
+    <string name="category_vehicle">Kendaraan</string>
+    <string name="category_entertainment">Hiburan</string>
+    <string name="category_income">Pemasukan</string>
+    <string name="error_transaction_create">Saldo anda tidak cukup untuk melakukan transaksi ini</string>
+
+    <string-array name="categories">
+        <item>Silahkan pilih kategori</item>
+        <item>Makanan</item>
+        <item>Kendaraan</item>
+        <item>Hiburan</item>
+        <item>Pemasukan</item>
+    </string-array>
+</resources>

@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Money Tracker</string>
+    <string name="main_appbar">My Wallet</string>
+    <string name="login_welcome">Welcome</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_button">Login</string>
+    <string name="login_register">Don\'t have an account? Register!</string>
+    <string name="login_onLoginSuccess">Login success!</string>
+    <string name="login_onValidateLoginFailed">Email or Password is incorrect</string>
+    <string name="main_label_account_balance">This is your main account\'s balance</string>
+    <string name="main_button_transaction">Transactions</string>
+    <string name="transaction_detail_toolbar">Transaction Detail</string>
+    <string name="transaction_list_toolbar">Transaction List</string>
+    <string name="debt_list_toolbar">Debt List</string>
+    <string name="debt_detail_toolbar">Debt Detail</string>
+    <string name="main_button_debt">Debts</string>
+    <string name="register_button">Register</string>
+    <string name="register_login">Already have an account? Login!</string>
+    <string name="debt_create_toolbar">Add Debt</string>
+    <string name="general_label_note">Note</string>
+    <string name="general_label_amount">Amount</string>
+    <string name="debt_label_creditor">To</string>
+    <string name="debt_label_date">Due Date</string>
+    <string name="general_button_create">Create</string>
+    <string name="new_account_balance_label">Please enter your account initial balance</string>
+    <string name="general_required">required</string>
+    <string name="transaction_create_toolbar">Add Transaction</string>
+    <string name="transaction_label_date">Date</string>
+    <string name="transaction_type_income">Income</string>
+    <string name="transaction_type_expense">Expense</string>
+    <string name="transaction_category_label">Category</string>
+    <string name="error_blank_email">Email must be filled</string>
+    <string name="error_wrong_email">Please enter correct email address</string>
+    <string name="error_password_length">Password length must be at least 8 characters</string>
+    <string name="preferences">wallet.preferences</string>
+    <string name="error_wrong_email_and_password">Email or password is wrong</string>
+    <string name="error_register">Something wrong when registering. Please try again</string>
+    <string name="session_timeout">Session Timeout !</string>
+    <string name="session_has_expired">Your session has expired.</string>
+    <string name="logout">Logout</string>
+    <string name="category_food">Food</string>
+    <string name="category_vehicle">Vehicle</string>
+    <string name="category_entertainment">Entertainment</string>
+    <string name="category_income">Income</string>
+    <string name="error_transaction_create">Your account balance is not enough for this transaction</string>
+
+    <string-array name="categories">
+        <item>Please select a category</item>
+        <item>Food</item>
+        <item>Vehicle</item>
+        <item>Entertainment</item>
+        <item>Income</item>
+    </string-array>
+</resources>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.viewmodel.DebtViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorSecondary"
+            android:minHeight="?android:attr/actionBarSize">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_back_48dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/debt_create_toolbar"
+                android:layout_marginStart="32sp"
+                android:textColor="@color/text_color"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                android:background="@color/colorWhite">
+
+                <LinearLayout
+                    android:layout_marginTop="28dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:textColor="@color/colorGrey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="72dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:text="Rp"
+                        android:textSize="22sp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="165sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="28dp"
+                        android:layout_marginEnd="32dp"
+                        app:hintTextColor="@color/colorGrey"
+                        android:hint="@string/general_label_amount"
+                        app:boxBackgroundColor="@color/colorWhite">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/ed_debtAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textColor="@color/text_color_black"
+                            android:inputType="number"
+                            android:text="@={viewModel.amount}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="283sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginStart="72dp"
+                    android:layout_marginEnd="32dp"
+                    app:hintTextColor="@color/colorGrey"
+                    android:hint="@string/general_label_note">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ed_debtTitle"
+                        android:background="@color/colorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="4dp"
+                        android:textColor="@color/text_color_black"
+                        android:text="@={viewModel.description}"
+                        android:inputType="textCapSentences"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="283sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginStart="72dp"
+                    android:layout_marginEnd="32dp"
+                    app:hintTextColor="@color/colorGrey"
+                    android:hint="@string/debt_label_creditor">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ed_debtCreditor"
+                        android:background="@color/colorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="4dp"
+                        android:textColor="@color/text_color_black"
+                        android:text="@={viewModel.creditor}"
+                        android:inputType="textCapSentences"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="283sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginStart="72dp"
+                    android:layout_marginEnd="32dp"
+                    app:hintTextColor="@color/colorGrey"
+                    android:hint="@string/debt_label_date">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ed_debtDate"
+                        android:background="@color/colorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="4dp"
+                        android:focusable="false"
+                        android:textColor="@color/text_color_black"
+                        android:onClick="@{() -> viewModel.onSelectDateClicked()}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Button"
+                    android:id="@+id/btn_createTransaction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="28dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/general_button_create"
+                    android:textSize="18sp"
+                    android:onClick="@{() -> viewModel.onCreateButtonClicked()}"/>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.viewmodel.TransactionViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorSecondary"
+            android:minHeight="?android:attr/actionBarSize">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_back_48dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/transaction_create_toolbar"
+                android:layout_marginStart="32sp"
+                android:textColor="@color/text_color"
+                android:textSize="24sp"
+                android:textStyle="bold"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                android:background="@color/colorWhite">
+
+                <LinearLayout
+                    android:layout_marginTop="28dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="72dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorGrey"
+                        android:text="Rp"
+                        android:textSize="22sp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="165sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="28dp"
+                        android:layout_marginEnd="32dp"
+                        android:hint="@string/general_label_amount"
+                        android:backgroundTint="@color/text_color_black"
+                        app:hintTextColor="@color/colorGrey"
+                        android:textColor="@color/text_color_black"
+                        app:boxBackgroundColor="@color/colorWhite">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/ed_transactionAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textColor="@color/text_color_black"
+                            android:text="@={viewModel.amount}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+                <Spinner
+                    android:id="@+id/spinner_category"
+                    android:layout_width="283sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="72dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginTop="28dp"
+                    android:entries="@array/categories"
+                    android:textColor="@color/colorGrey"
+                    />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="283sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginStart="72dp"
+                    android:layout_marginEnd="32dp"
+                    app:hintTextColor="@color/colorGrey"
+                    android:hint="@string/general_label_note">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ed_transactionTitle"
+                        android:background="@color/colorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="4dp"
+                        app:hintTextColor="@color/colorGrey"
+                        android:textColor="@color/text_color_black"
+                        android:text="@={viewModel.description}"
+                        android:inputType="textCapSentences"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="283sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginStart="72dp"
+                    android:layout_marginEnd="32dp"
+                    app:hintTextColor="@color/colorGrey"
+                    android:textColor="@color/text_color_black"
+                    android:hint="@string/transaction_label_date">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ed_transactionDate"
+                        android:background="@color/colorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="4dp"
+                        android:textColor="@color/text_color_black"
+                        android:focusable="false"
+                        android:onClick="@{() -> viewModel.onSelectDateClicked()}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+                <RadioGroup
+                    android:id="@+id/rg_income_expense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginStart="72dp"
+                    android:layout_marginEnd="32dp"
+                    android:checkedButton="@={viewModel.type}">
+
+                    <RadioButton
+                        android:id="@+id/rb_income"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/transaction_type_income"
+                        android:textSize="18sp"
+                        android:textColor="@color/text_color_black"
+                        android:buttonTint="@color/text_color_app"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_expense"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/transaction_type_expense"
+                        android:textSize="18sp"
+                        android:textColor="@color/text_color_black"
+                        android:buttonTint="@color/text_color_app"/>
+                </RadioGroup>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Button"
+                    android:id="@+id/btn_createTransaction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="28dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/general_button_create"
+                    android:textSize="18sp"
+                    android:onClick="@{() -> viewModel.onCreateButtonClicked()}"/>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "24928181115",
+    "firebase_url": "https://moneytracker-878e8.firebaseio.com",
+    "project_id": "moneytracker-878e8",
+    "storage_bucket": "moneytracker-878e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24928181115:android:47db29b8ea37c9fc12bbde",
+        "android_client_info": {
+          "package_name": "id.ac.ui.cs.mobileprogramming.hadlina.moneytracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24928181115-o3jeucglccjk8q2vnaeg2lfgevq4npcu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.ac.ui.cs.mobileprogramming.hadlina.moneytracker",
+            "certificate_hash": "9592a4e9897dec65da6da95e86a1255f522e1058"
+          }
+        },
+        {
+          "client_id": "24928181115-auqchut9ih4l7a91f9grkuill47bdhif.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT4i5IXwbkFq4LwzOL-m36bonVRPsE_N8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24928181115-auqchut9ih4l7a91f9grkuill47bdhif.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

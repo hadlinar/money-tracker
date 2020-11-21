@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/item_newTransaction"
+        android:title="@string/transaction_create_toolbar"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/item_newDebt"
+        android:title="@string/debt_create_toolbar"
+        app:showAsAction="never"/>
+
+</menu>

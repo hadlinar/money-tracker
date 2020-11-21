@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E4FDE1</color>
+    <color name="colorPrimaryDark">#D6EED3</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorSecondary">#E4FDE1</color>
+    <color name="colorReq">#FF2D16</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorGrey">#696969</color>
+    <color name="progress_bar">#5098c48b</color>
+    <color name="text_color">#8a000000</color>
+    <color name="text_color_black">#000000</color>
+    <color name="text_color_app">#4A3F35</color>
+</resources>
