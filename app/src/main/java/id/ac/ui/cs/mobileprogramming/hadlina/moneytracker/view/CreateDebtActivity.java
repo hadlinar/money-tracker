@@ -27,6 +27,7 @@ import androidx.lifecycle.ViewModelProviders;
 import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.R;
 import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.databinding.ActivityDebtCreateBinding;
 import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.model.entity.Debt;
+import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.utils.IntentService;
 import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.viewmodel.DebtViewModel;
 
 public class CreateDebtActivity extends AppCompatActivity {
@@ -39,6 +40,7 @@ public class CreateDebtActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaction_create);
+        startService(new Intent(CreateDebtActivity.this, IntentService.class));
 
         preferences = getSharedPreferences(getString(R.string.preferences), Context.MODE_PRIVATE);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_debt_create);
@@ -67,11 +69,11 @@ public class CreateDebtActivity extends AppCompatActivity {
             public void onChanged(Debt debt) {
                 if (debt != null) {
                     createEvent(debt);
-
                     Intent intent = new Intent(getApplicationContext(), DetailDebtActivity.class);
                     intent.putExtra("debt", debt);
                     startActivity(intent);
                     finish();
+                    stopService(new Intent(CreateDebtActivity.this, IntentService.class));
                 }
             }
         });

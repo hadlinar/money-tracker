@@ -121,5 +121,16 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/btn_calc"
+            style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_calc"
+            tools:layout_editor_absoluteX="151dp"
+            tools:layout_editor_absoluteY="571dp"
+            tools:ignore="MissingConstraints" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

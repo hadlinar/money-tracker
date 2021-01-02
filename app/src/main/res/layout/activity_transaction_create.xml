@@ -9,6 +9,12 @@
             type="id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.viewmodel.TransactionViewModel"/>
     </data>
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,11 +43,6 @@
                 android:textStyle="bold"/>
 
         </androidx.appcompat.widget.Toolbar>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -212,7 +213,7 @@
                     android:textSize="18sp" />
 
             </LinearLayout>
-        </ScrollView>
     </LinearLayout>
+    </ScrollView>
 
 </layout>

@@ -45,6 +45,11 @@
     <string name="category_income">Pemasukan</string>
     <string name="error_transaction_create">Saldo anda tidak cukup untuk melakukan transaksi ini</string>
     <string name="add_photo">Tekan untuk menambahkan foto</string>
+    <string name="btn_calc">Kalkulator</string>
+
+
+    <string name="result"></string>
+    <string name="textResult">Hasil:  </string>
 
     <string-array name="categories">
         <item>Silahkan pilih kategori</item>

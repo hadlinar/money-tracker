@@ -41,6 +41,7 @@ import androidx.lifecycle.ViewModelProviders;
 import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.R;
 import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.databinding.ActivityTransactionCreateBinding;
 import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.model.entity.Transaction;
+import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.utils.IntentService;
 import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.viewmodel.TransactionViewModel;
 
 public class CreateTransactionActivity extends AppCompatActivity{
@@ -56,6 +57,7 @@ public class CreateTransactionActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaction_create);
+        startService(new Intent(CreateTransactionActivity.this, IntentService.class));
 
         preferences = getSharedPreferences(getString(R.string.preferences), Context.MODE_PRIVATE);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_transaction_create);
@@ -153,6 +155,7 @@ public class CreateTransactionActivity extends AppCompatActivity{
                     intent.putExtra("transaction", transaction);
                     startActivity(intent);
                     finish();
+                    stopService(new Intent(CreateTransactionActivity.this, IntentService.class));
                 }
             }
         });

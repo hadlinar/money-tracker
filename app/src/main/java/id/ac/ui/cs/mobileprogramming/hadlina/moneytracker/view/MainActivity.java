@@ -12,6 +12,7 @@ import android.provider.CalendarContract;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 
@@ -25,6 +26,7 @@ import androidx.lifecycle.ViewModelProviders;
 import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.R;
 import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.databinding.ActivityMainBinding;
 import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.model.entity.Account;
+import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.utils.IntentService;
 import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.viewmodel.MainViewModel;
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private MainViewModel mainViewModel;
     private SharedPreferences preferences;
     public static Context context;
+    Button btnCalc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +49,18 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         mainViewModel.setName(getIntent().getStringExtra("email"));
         binding.setViewmodel(mainViewModel);
         this.context = this;
+        btnCalc = findViewById(R.id.btn_calc);
 
         getPrimaryCalendar();
         observe();
         Fresco.initialize(this.context);
+
+        btnCalc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), CalculatorActivity.class));
+            }
+        });
     }
 
     private void observe() {
@@ -80,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                         startActivity(new Intent(getApplicationContext(), TimeoutActivity.class));
                         return;
                     }
+                    startService(new Intent(MainActivity.this, IntentService.class));
                     startActivity(new Intent(getApplicationContext(), ListDebtActivity.class));
                 }
             }
