@@ -13,6 +13,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.core.app.ActivityCompat;
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private ActivityMainBinding binding;
     private MainViewModel mainViewModel;
     private SharedPreferences preferences;
+    public static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +45,11 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         mainViewModel.setEmail(getIntent().getStringExtra("email"));
         mainViewModel.setName(getIntent().getStringExtra("email"));
         binding.setViewmodel(mainViewModel);
+        this.context = this;
 
         getPrimaryCalendar();
         observe();
+        Fresco.initialize(this.context);
     }
 
     private void observe() {
@@ -121,6 +126,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             default: return false;
         }
     }
+
+
 
     public void getPrimaryCalendar() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
