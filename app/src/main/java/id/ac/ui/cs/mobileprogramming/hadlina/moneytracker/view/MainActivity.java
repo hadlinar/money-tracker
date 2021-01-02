@@ -7,12 +7,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 
@@ -37,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     private SharedPreferences preferences;
     public static Context context;
     Button btnCalc;
+    TextView tvWifi;
+    NetworkInfo wifiCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +67,22 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 startActivity(new Intent(getApplicationContext(), CalculatorActivity.class));
             }
         });
+
+        ConnectivityManager connectionManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        wifiCheck = connectionManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        tvWifi = (TextView) findViewById(R.id.wifi_connection);
+
+        if (wifiCheck.isConnected()) {
+            Toast.makeText(MainActivity.this,"Wifi connected", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(MainActivity.this,"Wifi not connected", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void checkWiFi(View view) {
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 
     private void observe() {
