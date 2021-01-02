@@ -1,7 +1,11 @@
 package id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.view;
 
 import android.Manifest;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,15 +13,19 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.TimeZone;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -28,6 +36,7 @@ import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.R;
 import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.databinding.ActivityDebtCreateBinding;
 import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.model.entity.Debt;
 import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.utils.IntentService;
+import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.utils.ReminderBroadcast;
 import id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.viewmodel.DebtViewModel;
 
 public class CreateDebtActivity extends AppCompatActivity {
@@ -46,6 +55,8 @@ public class CreateDebtActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_debt_create);
         viewModel = ViewModelProviders.of(this).get(DebtViewModel.class);
 
+        createNotification();
+
         binding.setViewModel(viewModel);
         viewModel.email.setValue(preferences.getString("email", ""));
 
@@ -61,6 +72,40 @@ public class CreateDebtActivity extends AppCompatActivity {
         });
 
         observe();
+
+        Button btnTimer = findViewById(R.id.btn_reminder);
+
+        btnTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(CreateDebtActivity.this, "Reminder set", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(CreateDebtActivity.this, ReminderBroadcast.class);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(CreateDebtActivity.this, 0, intent, 0);
+
+                AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+                long timeAtButtonClick = System.currentTimeMillis();
+                long tenSecondsInMillis = 1000 * 10;
+
+                alarmManager.set(AlarmManager.RTC_WAKEUP,
+                        timeAtButtonClick + tenSecondsInMillis,
+                        pendingIntent);
+            }
+        });
+    }
+
+    private  void createNotification(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name = "MoneyTrackerChannel";
+            String desc = "Channel for Money Tracker Reminder";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("moneytracker", name, importance);
+            channel.setDescription(desc);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 
     private void observe() {

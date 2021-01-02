@@ -38,6 +38,7 @@
                 <action android:name="SESSION_TIMEOUT" />
             </intent-filter>
         </receiver>
+        <receiver android:name=".utils.ReminderBroadcast"/>
 
         <service android:name=".utils.TimeoutService"></service>
         <service android:name=".utils.IntentService" />

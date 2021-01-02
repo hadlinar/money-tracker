@@ -157,11 +157,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:layout_marginBottom="28dp"
+                    android:layout_marginBottom="18dp"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/general_button_create"
                     android:textSize="18sp"
                     android:onClick="@{() -> viewModel.onCreateButtonClicked()}"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Button"
+                    android:id="@+id/btn_reminder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="28dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Remind Me"
+                    android:textSize="18sp"/>
 
             </LinearLayout>
         </ScrollView>
