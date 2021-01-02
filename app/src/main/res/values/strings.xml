@@ -45,7 +45,6 @@
     <string name="category_income">Income</string>
     <string name="error_transaction_create">Your account balance is not enough for this transaction</string>
     <string name="add_photo">Tap to add a photo</string>
-    <string name="select_photo">Select a photo</string>
 
     <string-array name="categories">
         <item>Please select a category</item>

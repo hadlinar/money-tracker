@@ -45,7 +45,6 @@
     <string name="category_income">Pemasukan</string>
     <string name="error_transaction_create">Saldo anda tidak cukup untuk melakukan transaksi ini</string>
     <string name="add_photo">Tekan untuk menambahkan foto</string>
-    <string name="select_photo">Pilih foto</string>
 
     <string-array name="categories">
         <item>Silahkan pilih kategori</item>
