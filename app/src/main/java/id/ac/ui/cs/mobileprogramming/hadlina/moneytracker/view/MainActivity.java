@@ -43,10 +43,13 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     Button btnCalc;
     TextView tvWifi;
     NetworkInfo wifiCheck;
+    private SplashScreen splashScreen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        splashScreen = (SplashScreen) findViewById(R.id.openGLView);
 
         preferences = getSharedPreferences(getString(R.string.preferences), Context.MODE_PRIVATE);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
@@ -130,6 +133,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             startActivity(new Intent(this, TimeoutActivity.class));
         }
         super.onResume();
+        splashScreen.onResume();
     }
 
     @Override

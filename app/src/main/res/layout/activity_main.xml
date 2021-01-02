@@ -19,6 +19,14 @@
         android:background="@color/colorWhite"
         tools:context="id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.view.MainActivity">
 
+        <id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.view.SplashScreen
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/openGLView"
+            >
+
+        </id.ac.ui.cs.mobileprogramming.hadlina.moneytracker.view.SplashScreen>
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBar"
             android:layout_width="match_parent"
